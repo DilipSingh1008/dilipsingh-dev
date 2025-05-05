@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4000;
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://dilipsingh-dev-1.onrender.com/", // Your frontend URL
+  origin: ["https://dilipsingh-dev-1.onrender.com", "https://dilipsingh-dev.onrender.com"], // Your frontend URL
   credentials: true, // Allow cookies to be sent with the request
 }));
 
