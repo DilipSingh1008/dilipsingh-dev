@@ -7,7 +7,7 @@ const contactRoute = require('./router/contact-router.js')
 const errorMiddleware = require('./middlewares/error-middleware.js')
 const adminRoute = require('./router/admin-route.js')
 require("dotenv").config();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 4000;
 
 // app.use(cors());
 app.use(express.json());
