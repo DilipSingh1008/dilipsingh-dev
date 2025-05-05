@@ -24,7 +24,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(contact);
-    axios.post('http://localhost:5000/api/form/contact', contact).then((respons) => {
+    axios.post('https://dilipsingh-dev.onrender.com/api/form/contact', contact).then((respons) => {
       // console.log(`data will be save `,respons.data);
       setContact(defaultContactData);
       // alert('Form submitted!');
