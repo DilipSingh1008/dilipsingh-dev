@@ -1,0 +1,11 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Node modules and build directories
+node_modules
+dist
+
+# .env file (Sensitive data)
+.env
