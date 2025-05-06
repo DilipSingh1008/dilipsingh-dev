@@ -6,6 +6,7 @@ const authRoute = require("./router/auth-router.js");
 const contactRoute = require('./router/contact-router.js')
 const errorMiddleware = require('./middlewares/error-middleware.js')
 const adminRoute = require('./router/admin-route.js')
+const path = require("path");   
 require("dotenv").config();
 const PORT = process.env.PORT || 4000;
 
@@ -24,6 +25,10 @@ app.use("/api/form",contactRoute)
 app.use('/api/admin/',adminRoute)
 
 app.use(errorMiddleware)
+app.use(express.static(path.join(__dirname, './frontend/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './frontend/dist/index.html'));
+});
 
 connectDb().then(()=>{
   app.listen(PORT, () => {
