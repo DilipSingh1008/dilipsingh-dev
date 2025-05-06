@@ -24,11 +24,12 @@ app.use("/api/form",contactRoute)
 // addmin routes
 app.use('/api/admin/',adminRoute)
 
-app.use(errorMiddleware)
 app.use(express.static(path.join(__dirname, './frontend/dist')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, './frontend/dist/index.html'));
 });
+app.use(errorMiddleware)
+
 
 connectDb().then(()=>{
   app.listen(PORT, () => {
