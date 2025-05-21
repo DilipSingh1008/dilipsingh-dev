@@ -37,7 +37,7 @@ const Contact = () => {
 
   return (
     <section className="contact-section">
-      <ToastContainer position="top-right" autoClose={3000} />
+      <ToastContainer position="top-right" autoClose={500} />
       <div className="contact-container">
         <div className="contact-header">
           <h1>Contact Me</h1>
