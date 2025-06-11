@@ -1,29 +1,126 @@
 .projects-container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* background: linear-gradient(135deg, #1e3c72, #2a5298); */
-    background-color: #0f172a;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background-color: #0f172a;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.projects-content {
+  animation: fadeIn 2s ease-in-out;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.projects-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: white;
+}
+
+.projects-section {
+  margin-bottom: 3rem;
+}
+
+.projects-subtitle {
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  color: #60a5fa; /* Light blue */
+}
+
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+.project-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #93c5fd; /* Light blue title */
+}
+
+.project-info p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+/* Optional list styles */
+.projects-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.projects-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .coming-soon-text {
-    font-size: 2.5rem;
-    font-weight: bold;
-    animation: fadeIn 2s ease-in-out;
-    text-align: center;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .projects-title {
+    font-size: 2rem;
   }
-  
+
+  .projects-subtitle {
+    font-size: 1.4rem;
+  }
+
+  .project-info h3 {
+    font-size: 1rem;
+  }
+
+  .project-info p {
+    font-size: 0.9rem;
+  }
+}

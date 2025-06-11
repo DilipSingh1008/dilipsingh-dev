@@ -24,10 +24,10 @@ app.use("/api/form",contactRoute)
 // addmin routes
 app.use('/api/admin/',adminRoute)
 
-// app.use(express.static(path.join(__dirname, 'frontend/dist')));
-// app.get('/{*any}', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'frontend/dist/index.html'));
-// });
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
+app.get('/{*any}', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/dist/index.html'));
+});
 app.use(errorMiddleware)
 
 

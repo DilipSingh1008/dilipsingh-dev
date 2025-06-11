@@ -6,7 +6,7 @@ const errorMiddleware = (err,req,res,next) =>{
                  const message = err.message || "BACKEND ERROR";
                  const extraDetails = err.extraDetails || "Error From Backend"
                  console.log(status);
-              return res.status(status).json({message,extraDetails})
+                 return res.status(status).json({message,extraDetails})
 };
 
 module.exports = errorMiddleware
