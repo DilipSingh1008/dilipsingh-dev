@@ -9,8 +9,8 @@ const contactForm = async (req, res) => {
 
         const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
-            port: 465,          // or 587 for TLS
-            secure: true,
+            port: 587,          // or 587 for TLS
+            secure: false,
             auth: {
                 user: process.env.GMAIL_USER,
                 pass: process.env.GMAIL_PASS,
