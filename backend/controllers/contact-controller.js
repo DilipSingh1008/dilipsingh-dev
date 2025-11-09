@@ -15,19 +15,21 @@ const contactForm = async (req, res) => {
                 pass: process.env.GMAIL_PASS,  // App password
             },
         });
-        console.log(transporter)
+        // console.log(transporter)
         
 
         // 3️⃣ Define mail content
         const mailOptions = {
-            from: resposne.email, // user who filled the form
-            to: process.env.GMAIL_USER, // your own email
-            subject: `New Contact Form Submission from ${resposne.name}`,
+            from: process.env.GMAIL_USER,     // Use your Gmail as sender
+      to: process.env.GMAIL_USER, 
+            subject: `New Contact Form Submission from ${resposne.username}`,
             text: `
 Name: ${resposne.username}
 Email: ${resposne.email}
 Message: ${resposne.message}
       `,
+            replyTo: resposne.email,          // User can reply
+
         };
 
         // 4️⃣ Send email
