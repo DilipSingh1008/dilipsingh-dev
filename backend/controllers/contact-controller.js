@@ -17,7 +17,7 @@ const contactForm = async (req, res) => {
 
 
         const mailOptions = {
-            from: resposne.email, 
+             from: process.env.GMAIL_USER, 
             to: process.env.GMAIL_USER, 
             subject: `New Contact Form Submission from ${resposne.username}`,
             text: `
@@ -33,9 +33,10 @@ const contactForm = async (req, res) => {
         // return res.status(200).json({ message: "message send succesfully " })
 
     } catch (error) {
+    console.error("Error sending email:", error);
+    return res.status(400).json({ message: "Message not delivered", error: error.message });
+}
 
-        return res.status(400).json({ message: "message not deliverd" })
-    }
 }
 
 module.exports = contactForm
