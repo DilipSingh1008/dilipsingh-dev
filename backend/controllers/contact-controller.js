@@ -3,11 +3,9 @@ const Contact = require('../model/contact-model')
 
 
 const contactForm = async (req, res) => {
-
     try {
-        console.log
         const resposne = req.body
-        await Contact.create(resposne)
+         await Contact.create(resposne)
 
         const transporter = nodemailer.createTransport({
             service: "gmail",
@@ -16,19 +14,19 @@ const contactForm = async (req, res) => {
                 pass: process.env.GMAIL_PASS,  // App password
             },
         });
-        
+
 
         // 3️⃣ Define mail content
         const mailOptions = {
             from: resposne.email, // user who filled the form
             to: process.env.GMAIL_USER, // your own email
-            subject: `New Contact Form Submission from ${resposne.name}`,
+            subject: `New Contact Form Submission from ${resposne.username}`,
             text: `
-Name: ${resposne.name}
-Email: ${resposne.email}
-Message: ${resposne.message}
-      `,
-        };
+            Name: ${resposne.username}
+            Email: ${resposne.email}
+            Message: ${resposne.message}
+               `,
+            };
 
         // 4️⃣ Send email
         await transporter.sendMail(mailOptions);
@@ -40,7 +38,6 @@ Message: ${resposne.message}
 
         return res.status(400).json({ message: "message not deliverd" })
     }
-
 }
 
 module.exports = contactForm
