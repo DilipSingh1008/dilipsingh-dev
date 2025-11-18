@@ -24,7 +24,7 @@ const contactForm = async (req, res) => {
         const mailOptions = {
             from: process.env.GMAIL_USER,
             to: process.env.GMAIL_USER,
-            replyTo: response.email,
+            replyTo: resposne.email,
             subject: `New Contact Form Submission from ${resposne.username}`,
             text: `
             Name: ${resposne.username}
